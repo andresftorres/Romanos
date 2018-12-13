@@ -1,6 +1,15 @@
 package org.gradle;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class Claudioladora {
+	
+	private Map<String, Integer> simbolosRomanos;
+	
+	public Claudioladora() {
+		this.simbolosRomanos = getSimbolos();
+	}
 
 	public String sumar(String numero1, String numero2) {		
 		return "II";
@@ -22,15 +31,28 @@ public class Claudioladora {
 		
 		return true;
 	}
-	
+
 	public boolean validarSimbolosRepetidos(String numero) {
 		
-		return false;
+		return !(numero.contains("MMMM")
+				|| numero.contains("DD")
+				|| numero.contains("CCCC")
+				|| numero.contains("LL")
+				|| numero.contains("XXXX")
+				|| numero.contains("VV")
+				|| numero.contains("IIII"));
 	}
 
-	public boolean verificarLongitud(String string) {
-		
-		return false;
+	public Map<String, Integer> getSimbolos() {
+		Map<String, Integer> simbolos = new HashMap<String, Integer>();
+		simbolos.put("I", 1);
+		simbolos.put("V", 5);
+		simbolos.put("X", 10);
+		simbolos.put("L", 50);
+		simbolos.put("C", 100);
+		simbolos.put("D", 500);
+		simbolos.put("M", 1000);
+		return simbolos;
 	}
 
 }
